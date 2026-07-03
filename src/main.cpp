@@ -1,7 +1,7 @@
-#include <iostream>
+import Core;
 
 int main() 
 {
-    std::cout << "Hello, Engine!\n";
+    printBanner();
     return 0;
 }
