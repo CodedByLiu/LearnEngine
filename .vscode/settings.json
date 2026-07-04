@@ -1,0 +1,17 @@
+{
+    // 自定义一个「带 VS 环境 + 剔掉 mingw」的终端 profile
+    "terminal.integrated.profiles.windows": {
+        "VS Dev (LearnEngine)": {
+            "path": "powershell.exe",
+            "args": [
+                "-NoExit",
+                "-ExecutionPolicy", "Bypass",
+                "-Command",
+                "& 'C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\Tools\\Launch-VsDevShell.ps1' -Arch amd64 -HostArch amd64 -SkipAutomaticLocation; $env:PATH = ($env:PATH -split ';' | Where-Object { $_ -notlike '*mingw*' }) -join ';'"
+            ],
+            "icon": "tools"
+        }
+    },
+    // 让这个工程的终端默认就用上面那个
+    "terminal.integrated.defaultProfile.windows": "VS Dev (LearnEngine)"
+}

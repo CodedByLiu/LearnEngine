@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+find_package(spdlog CONFIG REQUIRED)
+
 add_executable(Sandbox)
 
 target_sources(Sandbox PRIVATE
@@ -15,4 +17,7 @@ target_sources(Sandbox PRIVATE
 target_sources(Sandbox PRIVATE
     FILE_SET cxx_modules TYPE CXX_MODULES FILES
     src/Core.ixx
+    src/Log.ixx
 )
+
+target_link_libraries(Sandbox PRIVATE spdlog::spdlog)

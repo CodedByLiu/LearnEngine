@@ -1,3 +1,10 @@
+# 构建产物：binaryDir = build/，所有生成物（CMake 缓存、.obj、.exe、
+# vcpkg_installed、install）都落在这里，一条规则全盖住
 /build/
+/out/
+
+# vcpkg 经典模式产物（万一在根目录直接跑过 vcpkg install）
 /vcpkg_installed/
+
+# Visual Studio 本地缓存
 .vs/
