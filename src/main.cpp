@@ -1,12 +1,21 @@
 import Log;
+import Window;
 
 int main() 
 {
     LogInit();
+    LogInfo("引擎启动中...");
 
-    LogInfo("引擎日志系统启动成功！");
-    LogWarn("这是一个警告信息！");
-    LogError("这是一个错误信息！");
+    WindowInit(1280, 720, "Learn Engine");
+
+    while(!WindowShouldClose())
+    {
+        WindowClear(0.60f, 0.20f, 0.20f);
+        WindowUpdate();
+    }
+
+    WindowShutdown();
+    LogInfo("引擎正常退出。");
 
     return 0;
 }
